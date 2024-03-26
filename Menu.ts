@@ -1,7 +1,19 @@
-import readlinesync = require('readline-sync')
+import readlinesync = require('readline-sync');
+import {Conta} from './model/Conta'
 
 export function menu (){
     let opcao:number;
+    
+    let c1: Conta = new Conta(1, 123,1,"Natasha", 1000000 )
+
+    //c1.visualizar()
+
+
+    c1.depositar(1500);
+    c1.visualizar()
+
+
+
     while(true){
 
 console.log("************************************************");
