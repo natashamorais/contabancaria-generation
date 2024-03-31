@@ -11,6 +11,7 @@ export function menu (){
 
     c1.depositar(1500);
     c1.visualizar()
+    c1.sacar(150);
 
 
 

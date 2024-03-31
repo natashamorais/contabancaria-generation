@@ -6,109 +6,108 @@ export class Conta {
   private _saldo: number;
 
   constructor(
-    _numero: number,
-    _agencia: number,
-    _tipo: number,
-    _titular: string,
-    _saldo: number
+    numero: number,
+    agencia: number,
+    tipo: number,
+    titular: string,
+    saldo: number
   ) {
-    this._numero = _numero;
-    this._agencia = _agencia;
-    this._tipo = _tipo;
-    this._titular = _titular;
-    this._saldo = _saldo;
+    this._numero = numero;
+    this._agencia = agencia;
+    this._tipo = tipo;
+    this._titular = titular;
+    this._saldo = saldo;
   }
 
-  /**
-   * Getter numero
-   * @return {number}
-   */
-  public get_numero(): number {
-    return this._numero;
-  }
 
-  /**
-   * Getter agencia
-   * @return {number}
-   */
-  public get_agencia(): number {
-    return this._agencia;
-  }
+    /**
+     * Getter numero
+     * @return {number}
+     */
+	public get numero(): number {
+		return this._numero;
+	}
 
-  /**
-   * Getter tipo
-   * @return {number}
-   */
-  public get_tipo(): number {
-    return this._tipo;
-  }
+    /**
+     * Getter agencia
+     * @return {number}
+     */
+	public get agencia(): number {
+		return this._agencia;
+	}
 
-  /**
-   * Getter titular
-   * @return {string}
-   */
-  public get_titular(): string {
-    return this._titular;
-  }
+    /**
+     * Getter tipo
+     * @return {number}
+     */
+	public get tipo(): number {
+		return this._tipo;
+	}
 
-  /**
-   * Getter saldo
-   * @return {number}
-   */
-  public get_saldo(): number {
-    return this._saldo;
-  }
+    /**
+     * Getter titular
+     * @return {string}
+     */
+	public get titular(): string {
+		return this._titular;
+	}
 
-  /**
-   * Setter numero
-   * @param {number} value
-   */
-  public set_numero(value: number) {
-    this._numero = value;
-  }
+    /**
+     * Getter saldo
+     * @return {number}
+     */
+	public get saldo(): number {
+		return this._saldo;
+	}
 
-  /**
-   * Setter agencia
-   * @param {number} value
-   */
-  public set_agencia(value: number) {
-    this._agencia = value;
-  }
+    /**
+     * Setter numero
+     * @param {number} value
+     */
+	public set numero(value: number) {
+		this._numero = value;
+	}
 
-  /**
-   * Setter tipo
-   * @param {number} value
-   */
-  public set_tipo(value: number) {
-    this._tipo = value;
-  }
+    /**
+     * Setter agencia
+     * @param {number} value
+     */
+	public set agencia(value: number) {
+		this._agencia = value;
+	}
 
-  /**
-   * Setter titular
-   * @param {string} value
-   */
-  public set_titular(value: string) {
-    this._titular = value;
-  }
+    /**
+     * Setter tipo
+     * @param {number} value
+     */
+	public set tipo(value: number) {
+		this._tipo = value;
+	}
 
-  /**
-   * Setter saldo
-   * @param {number} value
-   */
-  public set_saldo(value: number) {
-    this._saldo = value;
-  }
+    /**
+     * Setter titular
+     * @param {string} value
+     */
+	public set titular(value: string) {
+		this._titular = value;
+	}
+
+    /**
+     * Setter saldo
+     * @param {number} value
+     */
+	public set saldo(value: number) {
+		this._saldo = value;
+	}
 
   
-  public sacar(valor: number):boolean{
-                if(this._saldo >= valor){
-                    this.set_saldo(this._saldo - valor)
-                    return true
-                }
-                console.log("O saldo é insuficiente!")
-                return false
+public sacar(valor: number) : boolean{
+  if (this._saldo >= valor) {
+    return true
   }
-  
+  console.log("Saldo insuficiente!")
+  return false
+}
   
   public depositar(valor: number):number{
    
