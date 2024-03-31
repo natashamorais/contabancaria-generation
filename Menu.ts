@@ -1,14 +1,17 @@
 import readlinesync = require('readline-sync');
 import {Conta} from './model/Conta'
+import { ContaController } from './controller/ContaController';
+import { ContaCorrente } from './model/ContaCorrente';
 
 export function menu (){
     let opcao:number;
+    let contas: ContaController = new ContaController();
+    let cc1: ContaCorrente = new ContaCorrente(1, 123,1,"Natasha", 1000000, 58000 )
+
+    contas.cadastrar(cc1)
     
     let c1: Conta = new Conta(1, 123,1,"Natasha", 1000000 )
-
-    //c1.visualizar()
-
-
+    
     c1.depositar(1500);
     c1.visualizar()
     c1.sacar(150);
@@ -47,6 +50,7 @@ switch(opcao){
 
  case 2: 
  console.log("\nLISTAR TODAS AS CONTAS\n");
+ contas.listarTodas()
  break;
 
  case 3: 
