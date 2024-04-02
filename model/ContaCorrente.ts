@@ -30,7 +30,7 @@ export class ContaCorrente extends Conta{
 	}
 public visualizar( ): void{
     super.visualizar()
-    console.log(`limite da conta corrente ${this._limite}`)
+    console.log(`Limite da conta corrente: ${this._limite}`)
 }
 
 
