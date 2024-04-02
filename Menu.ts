@@ -6,23 +6,23 @@ import { ContaPoupanca } from './model/ContaPoupanca';
 
 export function menu (){
 
-    let opcao:number, numero:number, agencia:number, tipo:number,saldo:number,limite:number,aniversario:number;
+    let opcao:number, numero:number, agencia:number, tipo:number,saldo:number,limite:number,aniversario:number,valor:number,numeroOrigem:number, numeroDestino:number;
     let titular: string;
     const tipoContas = ["Conta Corrente", "Conta Poupanca"]; 
 
 
     let contas: ContaController = new ContaController();
 
-    let cC: ContaCorrente = new ContaCorrente(1, 123,1,"Natasha", 1000000, 58000 )
-    contas.cadastrar(cC);
-
-    let cP: ContaPoupanca = new ContaPoupanca(1, 123,1,"Natasha", 1000000, 5)
+    let cC: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 123,1,"Natasha", 1000, 580 )
+    let cP: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 123,1,"Natasha", 1000, 5)
     contas.cadastrar(cP);
+     contas.cadastrar(cC);
 
     
 
 
     while(true){
+        
 
 console.log("************************************************");
 console.log("BANCO DO BRAZIL COM Z");
@@ -35,7 +35,8 @@ console.log("5 - APAGAR CONTA ");
 console.log("6 - SACAR ");
 console.log("7 - DEPOSITAR ");
 console.log("8 - TRANSFERIR VALORES ENTRE CONTAS");
-console.log("9 - SAIR ");
+console.log("9 - CONSULTAR POR NOME ");
+console.log("0 - PRESSIONE 0 PARA SAIR ");
 console.log("  ");
 console.log("************************************************");
 
@@ -156,7 +157,6 @@ switch(opcao){
  console.log("Digite o número da conta: ");
  numero = readlinesync.questionInt("");
 
- contas.deletar(numero);
 
  console.log("A conta foi excluída!");
 
@@ -165,17 +165,56 @@ switch(opcao){
 
  case 6: 
  console.log("\nSAQUE\n");
- 
+
+ console.log("Digite o número da conta: ");
+ numero = readlinesync.questionInt("");
+
+ console.log("Digite o valor para o saque: ")
+ valor = readlinesync.questionFloat("");
+
+ contas.sacar(numero, valor);
+
  keyPress()
  break;
 
  case 7: 
  console.log("\nDEPÓSITO\n");
+ 
+ console.log("Digite o número da conta: ");
+ numero = readlinesync.questionInt("");
+
+ console.log("Digite o valor para o depósito: ")
+ valor = readlinesync.questionFloat("");
+
+ contas.depositar(numero, valor);
+
  keyPress()
  break;
 
  case 8: 
  console.log("\nTRANSEFERÊNCIA ENTRE CONTAS\n");
+
+ console.log("Digite o número da conta de origem: ");
+ numeroOrigem = readlinesync.questionInt("");
+
+ console.log("Digite o número da conta de origem:: ")
+ numeroDestino = readlinesync.questionFloat("");
+
+ console.log("Digite o valor para o depósito: ")
+ valor = readlinesync.questionFloat("");
+
+ contas.transferir(numeroOrigem,numeroDestino,valor);
+ keyPress()
+ break;
+
+ case 9: 
+ console.log("\nTRANSEFERÊNCIA ENTRE CONTAS\n");
+ console.log("Digite o nome do titular: ")
+ titular = readlinesync.question("");
+
+ contas.procurarPorTitular(titular)
+
+ 
  keyPress()
  break;
 
